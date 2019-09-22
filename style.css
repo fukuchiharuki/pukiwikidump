@@ -1,0 +1,35 @@
+.jumpmenu, .anchor_super {
+	display: none;
+}
+
+a, a:visited {
+	color: blue;
+}
+
+body > * {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 700px;
+}
+
+#top {
+	margin-top: 20px;
+}
+
+#footer {
+	margin: 40px auto 0;
+	border-top: 1px solid gray;
+	text-align: center;
+}
+
+#footer .description {
+	margin-bottom: 0;
+}
+
+#footer .site-admin {
+	margin-bottom: 16px;
+}
+
+#footer .site-admin:before {
+	content: "Site admin: ";
+}
