@@ -44,7 +44,7 @@ function page() {
 	mkdir -p "$DIR"
 	
 	curl --retry 3 -sL $URI |
-	xmllint --xpath '//*[@id="body"]' --html - > "$(htmlpath $NAME)"
+	xmllint --xpath '//*[@id="body" or @id="lastmodified"]' --html - > "$(htmlpath $NAME)"
 	echo "download page: $(htmlpath $NAME)"
 
 	list_images "$NAME"
