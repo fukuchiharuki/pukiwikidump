@@ -11,4 +11,5 @@ export TEMPLATE_AUTHOR="ふくちはるき"
 export TEMPLATE_HOMEPAGE="https://fukuchiharuki.me/"
 
 bash $(cd $(dirname $0) && pwd)/scrape.sh
+zip page.zip -r page
 bash $(cd $(dirname $0) && pwd)/setup.sh
