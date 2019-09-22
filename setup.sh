@@ -10,7 +10,7 @@ BASE_HREF=$(echo $BASE_HREF | sed -E "s/\//\\\\\//g")
 TEMPLATE_HOMEPAGE=$(echo $TEMPLATE_HOMEPAGE | sed -E "s/\//\\\\\//g")
 
 function main() {
-	cat $PAGE_LIST | head -n 10 | while read LINE
+	cat $PAGE_LIST | while read LINE
 	do
 		NAME=$(echo $LINE | cut -d' ' -f2-)
 		fix $NAME
