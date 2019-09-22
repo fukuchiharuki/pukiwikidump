@@ -16,8 +16,12 @@ body > * {
 	margin-top: 20px;
 }
 
-#footer {
+#lastmodified {
 	margin: 40px auto 0;
+}
+
+#footer {
+	margin: 16px auto 0;
 	border-top: 1px solid gray;
 	text-align: center;
 }
@@ -26,10 +30,14 @@ body > * {
 	margin-bottom: 0;
 }
 
-#footer .site-admin {
+#footer .site-admin:before {
+	content: "Site admin: ";
+}
+
+#footer .timestamp {
 	margin-bottom: 16px;
 }
 
-#footer .site-admin:before {
-	content: "Site admin: ";
+#footer .timestamp:before {
+	content: "Dumped at: ";
 }
