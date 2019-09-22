@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export INDEX="http://fukuchiharuki.me/wiki/index.php"
+export INDEX="http://localhost/wiki/index.php"
 
 #export BASE_HREF="/static/pukiwikidump/"
 export BASE_HREF="/"
