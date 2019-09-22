@@ -37,6 +37,8 @@ function make() {
 	NAME=${@:1:($#)}
 	NAME_REGEX=$(echo $"$NAME" | sed -E "s/\//\\\\\&#047;/g")
 
+	TIMESTAMP=$(date "+%Y-%m-%dT%H:%M:%S")
+
 	echo "<!DOCTYPE html>" > $SWAP
 	echo "<html>" >> $SWAP
 
@@ -47,6 +49,7 @@ function make() {
 	sed -E "s/\{title\}/$TEMPLATE_TITLE/g" |
 	sed -E "s/\{description\}/$TEMPLATE_DESCRIPTION/g" |
 	sed -E "s/\{author\}/$TEMPLATE_AUTHOR/g" |
+	sed -E "s/\{timestamp\}/$TIMESTAMP/g" |
 	sed -E "s/\{name\}/$NAME_REGEX/g" >> $SWAP
 
 	echo "<body>" >> $SWAP
@@ -57,6 +60,7 @@ function make() {
 	sed -E "s/\{title\}/$TEMPLATE_TITLE/g" |
 	sed -E "s/\{description\}/$TEMPLATE_DESCRIPTION/g" |
 	sed -E "s/\{author\}/$TEMPLATE_AUTHOR/g" |
+	sed -E "s/\{timestamp\}/$TIMESTAMP/g" |
 	sed -E "s/\{name\}/$NAME_REGEX/g" >> $SWAP
 
 	cat "$(htmlpath $NAME)" >> $SWAP
@@ -67,6 +71,7 @@ function make() {
 	sed -E "s/\{title\}/$TEMPLATE_TITLE/g" |
 	sed -E "s/\{description\}/$TEMPLATE_DESCRIPTION/g" |
 	sed -E "s/\{author\}/$TEMPLATE_AUTHOR/g" |
+	sed -E "s/\{timestamp\}/$TIMESTAMP/g" |
 	sed -E "s/\{name\}/$NAME_REGEX/g" >> $SWAP
 
 	echo "</body>" >> $SWAP
