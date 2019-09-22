@@ -54,9 +54,9 @@ function list_images() {
 	NAME=${@:1:($#)}
 
 	cat "$(htmlpath $NAME)" |
-	grep "img src=" |
+	grep "<img src=" |
 	sed -E "s/<img ([^>]*)>/\n<img \1>\n/g" |
-	grep "img src=" |
+	grep "<img src=" |
 	sed -E "s/^<img src=\"([^\"]*)\".*$/\1/g" |
 	sed -E "s/amp;//g" | while read URI
 	do
