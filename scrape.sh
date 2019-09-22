@@ -31,6 +31,7 @@ function list_pages() {
 	grep -e "<li><a href" |
 	grep -e "$INDEX" |
 	sed -E "s/^.*<a href=\"([^\"]*)\">([^<]*)<\/a>.*$/\1 \2/g" |
+	sed -E "s/\&#039;/'/g" |
 	sed -E "1s/^/$LIST_URI_REGEX index\n/" > $PAGE_LIST
 
 	rm -rf $IMAGE_LIST
@@ -55,6 +56,7 @@ function list_images() {
 
 	cat "$(htmlpath $NAME)" |
 	grep "<img src=" |
+	grep "index.php?plugin=ref" |
 	sed -E "s/<img ([^>]*)>/\n<img \1>\n/g" |
 	grep "<img src=" |
 	sed -E "s/^<img src=\"([^\"]*)\".*$/\1/g" |
