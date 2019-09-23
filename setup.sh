@@ -64,6 +64,9 @@ function make() {
 	cat "$(htmlpath $NAME)" >> $SWAP
 
 	cat $TEMPLATE |
+	xmllint --xpath '//*[@id="sponsor-link"]' --html - >> $SWAP
+
+	cat $TEMPLATE |
 	xmllint --xpath '//*[@id="footer"]' --html - |
 	sed -E "s/%7Bhomepage%7D/$TEMPLATE_HOMEPAGE/g" |
 	sed -E "s/\{title\}/$TEMPLATE_TITLE/g" |
