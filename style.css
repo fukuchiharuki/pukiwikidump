@@ -1,5 +1,9 @@
-.jumpmenu, .anchor_super {
+.jumpmenu {
 	display: none;
+}
+
+.anchor_super {
+	visibility: hidden;
 }
 
 a, a:visited {
