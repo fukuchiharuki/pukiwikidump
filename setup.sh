@@ -27,9 +27,7 @@ function fix() {
 	sed -E "s/img src=\"[^\"]*index\.php\?plugin=ref\&amp;page=([^\"\&]*)\&amp;src=([^\"]*)\"/img src=\"page\/\1.html__\2\"/g" |
 	sed -E "s/ href=\"[^\"]*index\.php\?plugin=attach\&amp;refer=([^\"\&]*)\&amp;openfile=([^\"]*)\"/ href=\"page\/\1.html__\2\"/g" |
 	sed -E "s/ href=\"[^\"]*index\.php\?([^\"#]*)([^\"]*)\"/ href=\"page\/\1.html\2\"/g" |
-	sed -E "s/ href=\"#(top_[0-9]*)\"/ href=\"page\/$NAME_REGEX.html#\1\"/g" |
-	sed -E "s/ href=\"#(head_[0-9]*)\"/ href=\"page\/$NAME_REGEX.html#\1\"/g" |
-	sed -E "s/ href=\"#(navigator)\"/ href=\"page\/$NAME_REGEX.html#\1\"/g" > $SWAP
+	sed -E "s/ href=\"#([^\"]*)\"/ href=\"page\/$NAME_REGEX.html#\1\"/g" > $SWAP
 	cat $SWAP > "$(htmlpath $NAME)"
 }
 
